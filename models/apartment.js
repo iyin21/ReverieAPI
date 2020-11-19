@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 
 var ApartmentSchema = new mongoose.Schema({
 	user: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
-	ApartmentName: {type: String, required: true},
+	apartmentName: {type: String, required: true},
 });
 
 //UserSchema.plugin(passportLocalMongoose, {usernameField : "email"});

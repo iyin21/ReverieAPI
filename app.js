@@ -58,7 +58,7 @@ app.get("/apartment", function(req, res){
 	})
 });
 app.get("/", function(req, res){
-	User.find({}).populate({path:"apartment", model: "Apartment"}).populate({path:"review", model: "Review"}).lean().exec(function(err, allUsers){
+	Review.find({}).populate({path:"user", model: "User"}).populate({path:"apartment", model: "Apartment"}).lean().exec(function(err, allUsers){
 		if(err){
 			res.status(500).send({error: "Could not fetch apartments"});
 		}else{
