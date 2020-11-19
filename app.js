@@ -8,7 +8,9 @@ var Apartment = require("./models/apartment");
 var Review = require("./models/review");
 
 
-mongoose.connect("mongodb://localhost/reverie",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
+// mongoose.connect("mongodb://localhost/reverie",{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});
+// mongodb+srv://iyinoluwa:<password>@reverie.lwbxy.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongoose.connect("mongodb+srv://iyinoluwa:esther@reverie.lwbxy.mongodb.net/<dbname>?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 
 
 app.use(bodyParser.json())
@@ -129,7 +131,7 @@ app.put("/review/apartment/add", function(req, res){
 		}
 	})
 });
-app.listen(5000, function(){
+app.listen(process.env.PORT || 5000, function(){
 	console.log("Reverie API has started");
 });
 
